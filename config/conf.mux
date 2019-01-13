@@ -1,0 +1,110 @@
+general {
+    dabmode 1
+    nbframes 0
+}
+
+remotecontrol {
+    telnetport 12721
+}
+
+ensemble {
+    id 0xF005
+    ecc 0xE1
+    label "GRV DAB+"
+    shortlabel "GRV DAB+"
+    international-table 1
+    local-time-offset auto
+}
+
+services {
+    srv_radio1 {
+        label "GRAFFITI"
+        id 0x6381
+    }
+    srv_radio2 {
+        label "NEPTUNE FM"
+        id 0x6354
+    }
+    srv_radio3 {
+        label "SUN"
+        id 0x6315
+    }
+    srv_radio4 {
+        label "JET FM"
+        id 0x6217
+    }
+}
+
+subchannels {
+    sub_radio1 {
+        type dabplus
+        inputfile "tcp://*:9001"
+        zmq-buffer 96
+        zmq-prebuffering 48
+        bitrate 128
+        id 1
+        protection 3
+    }
+    sub_radio2 {
+        type dabplus
+        inputfile "tcp://*:9002"
+        zmq-buffer 96
+        zmq-prebuffering 48
+        bitrate 128
+        id 2
+        protection 3
+    }
+    sub_radio3 {
+        type dabplus
+        inputfile "tcp://*:9003"
+        zmq-buffer 96
+        zmq-prebuffering 48
+        bitrate 128
+        id 3
+        protection 3
+    }
+    sub_radio4 {
+        type dabplus
+        inputfile "tcp://*:9004"
+        zmq-buffer 96
+        zmq-prebuffering 48
+        bitrate 128
+        id 4
+        protection 3
+    }    
+}
+
+components {
+    comp_radio1 {
+        label "GRAFFITI"
+        shortlabel "GRAFFITI"
+        service srv_radio1
+        subchannel sub_radio1
+        figtype 0x2
+    }
+    comp_radio2 {
+        label "NEPTUNE FM"
+        shortlabel "NEPTUNE"
+        service srv_radio2
+        subchannel sub_radio2
+        figtype 0x2
+    }
+    comp_radio3 {
+        label "SUN"
+        shortlabel "SUN"
+        service srv_radio3
+        subchannel sub_radio3
+        figtype 0x2
+    }
+        comp_radio4 {
+        label "JET FM"
+        shortlabel "JET"
+        service srv_radio4
+        subchannel sub_radio4
+        figtype 0x2
+    }
+}
+outputs {
+    zmq "zmq+tcp://*:18081"
+    throttle "simul://" 
+}
