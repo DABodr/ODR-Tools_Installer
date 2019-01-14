@@ -26,29 +26,46 @@ echo "  *   Supervisor (automatisation of all tools) "
 # Requires: sudo"
 echo -e $NORMAL
 
-
-
-if [ $(lsb_release -d | grep -c wheezy) -eq 1 ] ; then
+if [ $(lsb_release -d | grep -c wheezy) -eq 1 ]; then
 echo -e $RED
 echo "Error, debian wheezy is not supported anymore"
 echo -e $NORMAL
 exit 1
+fi
 
-elif [ $(lsb_release -d | grep -c jessie) -eq 1 ] ; then
-DISTRO="jessie"
-sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-elif [ $(lsb_release -d | grep -c stretch) -eq 1 ] ; then
+if [ $(lsb_release -d | grep -c jessie) -eq 1 ]; then
+	DISTRO="jessie"
+fi
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+	sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
+	sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
+	sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
+	sudo mv /home/$USER/sources.list /etc/apt/sources.list
+fi
+
+
+if [ $(lsb_release -d | grep -c stretch) -eq 1 ]; then
 DISTRO="stretch"
-sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-elif [ $(lsb_release -d | grep -c buster) -eq 1 ] ; then
-DISTRO="buster"
-sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" >> /home/$USER/sources.list
-sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" >> /home/$USER/sources.list
+fi
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
+		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
+		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
+		sudo mv /home/$USER/sources.list /etc/apt/sources.list
 
 fi
-sudo mv /home/$USER/sources.list /etc/apt/sources.list
+
+if [ $(lsb_release -d | grep -c buster) -eq 1 ]; then
+DISTRO="buster"
+fi
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" >> /home/$USER/sources.list
+		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" >> /home/$USER/sources.list
+		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
+		sudo mv /home/$USER/sources.list /etc/apt/sources.list
+fi
+
+
 echo
 echo -e $COIN " Your version : $DISTRO "
 echo "========================================================="
@@ -188,7 +205,11 @@ echo -e "$GREEN Compiling ODR-DabMux $NORMAL"
 git clone https://github.com/Opendigitalradio/ODR-DabMux.git
 pushd ODR-DabMux
 ./bootstrap.sh
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
 ./configure --enable-input-zeromq --enable-output-zeromq --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
+else
+./configure --enable-input-zeromq --enable-output-zeromq
+fi
 make
 sudo make install
 popd
@@ -245,6 +266,7 @@ sudo make install
 popd
 fi
 
+sudo mv /etc/apt/sources.list-old /etc/apt/sources.list
 
 echo -e "$GREEN Done installing all tools $NORMAL"
 echo -e "All the tools have been dowloaded to the /home/$USER/dab/ folder,"
