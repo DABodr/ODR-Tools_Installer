@@ -5,7 +5,7 @@ For linking all the "config" directory in supervisor
 after the git clone repository "RPIDAB_AIO" move the "config" file in root of "dab" directory
 mv /home/$USER/dab/RPIDAB_AIO/config /home/$USER/dab/
 
-
+surpervisor .conf files doesn't accept $USER 
 
 in sudo nano /etc/supervisor/supervisord.conf
 
