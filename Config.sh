@@ -46,7 +46,11 @@ echo -e "[$GREEN OK $NORMAL]"
 echo
 
 echo "Modification de la variable USER des fichiers de configuration"
-sudo sed -i -e "s/azerty/$USER/g" /home/$USER/dab/config/supervisor/*.conf
+for file in /home/$USER/dab/config/supervisor/*.conf
+do
+  echo "Traitement de $file ..."
+  sudo sed -i -e "s/azerty/$USER/g" "$file"
+done 
 echo -e "[$GREEN OK $NORMAL]"
 
 echo "Creation des liens symboliques"
