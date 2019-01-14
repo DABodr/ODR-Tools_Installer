@@ -8,30 +8,30 @@ remotecontrol {
 }
 
 ensemble {
-    id 0xF005
+    id 0xF408
     ecc 0xE1
-    label "GRV DAB+"
-    shortlabel "GRV DAB+"
+    label "RSAP DAB+"
+    shortlabel "RSAP"
     international-table 1
     local-time-offset auto
 }
 
 services {
     srv_radio1 {
-        label "GRAFFITI"
-        id 0x6381
+        label "My MP3"
+        id 0xF0A1
     }
     srv_radio2 {
-        label "NEPTUNE FM"
-        id 0x6354
+        label "F I P"
+        id 0xF0A2
     }
     srv_radio3 {
-        label "SUN"
-        id 0x6315
+        label "RTL2"
+        id 0xF0A3
     }
     srv_radio4 {
-        label "JET FM"
-        id 0x6217
+        label "RIRE &"
+        id 0xF0A4
     }
 }
 
@@ -76,35 +76,35 @@ subchannels {
 
 components {
     comp_radio1 {
-        label "GRAFFITI"
-        shortlabel "GRAFFITI"
+        label "My lovely MP3"
+        shortlabel "My MP3"
         service srv_radio1
         subchannel sub_radio1
         figtype 0x2
     }
     comp_radio2 {
-        label "NEPTUNE FM"
-        shortlabel "NEPTUNE"
+        label "F I P RADIO"
+        shortlabel "F I P"
         service srv_radio2
         subchannel sub_radio2
         figtype 0x2
     }
     comp_radio3 {
-        label "SUN"
-        shortlabel "SUN"
+        label "RTL2"
+        shortlabel "RTL2"
         service srv_radio3
         subchannel sub_radio3
         figtype 0x2
     }
         comp_radio4 {
-        label "JET FM"
-        shortlabel "JET"
+        label "RIRE & CHANSONS"
+        shortlabel "RIRE &"
         service srv_radio4
         subchannel sub_radio4
         figtype 0x2
     }
 }
 outputs {
-    zmq "zmq+tcp://*:18081"
+    zmq "zmq+tcp://*:18082"
     throttle "simul://" 
 }
