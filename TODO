@@ -14,4 +14,11 @@ add 2 lines:
 [include]
 files = /etc/supervisor/conf.d/*.conf /etc/supervisor/conf.d/*/*.conf /etc/supervisor/conf.d/*/*/*.conf
 
+For "config" directory:
+
+try to make run: mplayer -ao alsa:device=hw=1.1 -srate 32000 **/*mp3
+with snd-aloop command: sudo modprobe snd-aloop
+
+next, sound will be encoded lke this: dabplus-enc -d hw:1 ... in enc-radio.conf file
+
 
