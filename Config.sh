@@ -33,6 +33,11 @@ echo
 echo " Copie des fichiers de configuration"
 sudo cp -R config /home/$USER/dab/
 echo
+echo " création des liens symboliques pour le répertoire config "
+echo
+sudo ln /home/odr/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
+sudo ln /home/odr/dab/config/*.conf /etc/supervisor/conf.d/
+echo
 echo -e "[$GREENOK$NORMAL]"
 echo
 echo "Redemarrage de Supervisor"
