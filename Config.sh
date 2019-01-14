@@ -2,6 +2,8 @@
 
 NORMAL="\e[0m"
 RED="\e[91m"
+GREEN="\e[92m"
+
 clear
 which sudo
 if [ "$?" == "0" ]
@@ -19,7 +21,7 @@ fi
 
 set -e
 
-echo "Modification du fichier de configuration Supervisor"
+echo "Modification des fichiers de configuration Supervisor"
 if [ "$?" == "0" ]
 then
     echo "Press Ctrl-C to abort Supervisor Configuration"
@@ -28,22 +30,28 @@ then
     read
 sudo /etc/init.d/supervisor stop
 sudo cp -v supervisord.conf /etc/supervisor/supervisord.conf
-echo -e "[$GREENOK$NORMAL]"
+echo -e "[$GREEN OK $NORMAL]"
 echo
+
 echo " Copie des fichiers de configuration"
 sudo cp -R config /home/$USER/dab/
 echo
-echo " création des liens symboliques pour le répertoire config "
+echo -e "[$GREEN OK $NORMAL]"
 echo
-sudo ln /home/odr/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
-sudo ln /home/odr/dab/config/*.conf /etc/supervisor/conf.d/
-echo
-echo -e "[$GREENOK$NORMAL]"
-echo
+
 echo "Redemarrage de Supervisor"
 sudo /etc/init.d/supervisor start
 echo
-echo -e "[$GREENOK$NORMAL]"
+echo -e "[$GREEN OK $NORMAL]"
 echo
-echo "Coincoin"
+
+echo "Modification de la variable USER des fichiers de configuration"
+sudo sed -i -e "s/azerty/$USER/g" /home/$USER/dab/config/supervisor/*.conf
+echo -e "[$GREEN OK $NORMAL]"
+
+echo "Creation des liens symboliques"
+sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
+echo
+echo -e "[$GREEN OK $NORMAL]"
+echo
 fi
