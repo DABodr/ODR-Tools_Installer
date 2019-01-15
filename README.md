@@ -1,5 +1,5 @@
 # RPIDAB_ODR
-Auto-install script of mmbtools for RPI 
+Auto-install script of mmbtools for RPI on Jessie and Stretch distribution.
 
   * Install:
 
