@@ -1,7 +1,7 @@
 # RPIDAB_ODR
 Auto-install script of mmbtools for RPI 
 
-* Install:
+  * Install:
 
 - git clone https://github.com/DABodr/RPIDAB_AIO.git
 - cd RPIDAB_AIO
