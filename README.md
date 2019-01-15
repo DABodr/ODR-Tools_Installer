@@ -1,6 +1,8 @@
 # RPIDAB_ODR
 Auto-install script of mmbtools for RPI on Jessie and Stretch distribution.
 
+- latest version of Raspbian stretch is available here: https://downloads.raspberrypi.org/raspbian_full_latest
+
   * Install:
 
 - git clone https://github.com/DABodr/RPIDAB_AIO.git
