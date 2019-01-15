@@ -8,7 +8,7 @@ Auto-install script of mmbtools for RPI
 - chmod +x ./Install_script_ODR.sh
 - ./Install_script_ODR.sh 
 
-It will make a "dab" directory in /home/$USER/ , install all dependency for odr-mmbtools and all tools for run simply a DAB+ multiplex like:
+It will make a "dab" directory in /home/$USER/ , install all dependency for odr-mmbtools and all tools for run simply a DAB+ multiplex:
    *   ODR-DabMux (DAB/DAB+ multiplexer) 
    *   ODR-AudioEnc (DAB/DAB+ audio encoder)
    *   ODR-PadEnc ( MOT slideshows and DLS encoder)
