@@ -36,7 +36,7 @@ fi
 if [ $(lsb_release -d | grep -c jessie) -eq 1 ]; then
 	DISTRO="jessie"
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [DISTRO="jessie"]]; then
 	sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
 	sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
 	sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
@@ -48,7 +48,7 @@ fi
 if [ $(lsb_release -d | grep -c stretch) -eq 1 ]; then
 DISTRO="stretch"
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [DISTRO="stretch"]]; then
 		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
 		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
 		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
@@ -57,10 +57,10 @@ if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
 
 fi
 
-if [ $(lsb_release -d | grep -c buster) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c buster) -eq 1 ] ; then
 DISTRO="buster"
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [DISTRO="buster"]]; then
 		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" >> /home/$USER/sources.list
 		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" >> /home/$USER/sources.list
 		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
