@@ -33,38 +33,41 @@ echo -e $NORMAL
 exit 1
 fi
 
-if [ $(lsb_release -d | grep -c jessie) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c Debian) -eq 1 ] && [ $(lsb_release -sc | grep -c jessie) -eq 1  ]; then
 	DISTRO="jessie"
 echo -e "deb-src http://ftp.debian.org/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
         LIST_APT="ok"
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "jessie"]]; then
-	echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [ $(lsb_release -sc | grep -c jessie) -eq 1 ]; then
+	DISTRO="jessie"
+echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 	LIST_APT="ok"
 fi
 
 
-if [ $(lsb_release -d | grep -c stretch) -eq 1 ]; then
+if [ $(lsb_release -d | grep -c Debian) -eq 1 ] && [ $(lsb_release -sc | grep -c stretch) -eq 1 ]; then
 	DISTRO="stretch"
 echo -e  "deb-src http://ftp.debian.org/debian/ stretch main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
         LIST_APT="ok"
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "stretch"]]; then
-		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [ $(lsb_release -sc | grep -c stretch) -eq 1 ]; then
+	DISTRO="stretch"
+echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
         LIST_APT="ok"
 
 fi
 
-if [ $(lsb_release -d | grep -c buster) -eq 1 ] ; then
+if [ $(lsb_release -d | grep -c Debian) -eq 1 ] && [ $(lsb_release -sc | grep -c buster) -eq 1 ] ; then
 	DISTRO="buster"
 echo -e  "deb-src http://ftp.debian.org/debian/ buster main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
         LIST_APT="ok"
 
 
 fi
-if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "buster"]]; then
-		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
-		LIST_APT="ok"
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [ $(lsb_release -sc | grep -c buster) -eq 1 ]; then
+        DISTRO="buster"
+echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+	LIST_APT="ok"
 fi
 
 
