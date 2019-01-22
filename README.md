@@ -29,7 +29,7 @@ This tool will configure Supervisor server on port 8001 and add "config" directo
 - chmod +x Config.sh
 - ./Config.sh
 
-Now you can go at this adress: http://localhost:8001 and see all services running in supervisor.
+Now you can go at this adress: http://localhost:8001 and see all services running in supervisor. (login: odr ; pass: odr)
 
 Congratulations everythings is ready :) 
 
