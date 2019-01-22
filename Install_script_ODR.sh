@@ -37,10 +37,7 @@ if [ $(lsb_release -d | grep -c jessie) -eq 1 ]; then
 	DISTRO="jessie"
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "jessie"]]; then
-	sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-	sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-	sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-	sudo mv /home/$USER/sources.list /etc/apt/sources.list
+	echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 	LIST_APT="ok"
 fi
 
@@ -49,10 +46,7 @@ if [ $(lsb_release -d | grep -c stretch) -eq 1 ]; then
 DISTRO="stretch"
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "stretch"]]; then
-		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-		sudo mv /home/$USER/sources.list /etc/apt/sources.list
+		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 		LIST_APT="ok"
 
 fi
@@ -61,10 +55,7 @@ if [ $(lsb_release -d | grep -c buster) -eq 1 ] ; then
 DISTRO="buster"
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "buster"]]; then
-		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" >> /home/$USER/sources.list
-		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-		sudo mv /home/$USER/sources.list /etc/apt/sources.list
+		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 		LIST_APT="ok"
 fi
 
@@ -272,9 +263,7 @@ make
 sudo make install
 popd
 fi
-if [ "LIST_APT" == "ok" ];then
-sudo mv /etc/apt/sources.list-old /etc/apt/sources.list
-fi
+
 
 echo -e "$GREEN Done installing all tools $NORMAL"
 echo -e "All the tools have been dowloaded to the /home/$USER/dab/ folder,"
