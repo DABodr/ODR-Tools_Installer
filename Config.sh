@@ -55,9 +55,15 @@ echo -e "[$GREEN OK $NORMAL]"
 
 echo "Creation des liens symboliques"
 sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
-sudo ln /home/$user/dab/config/*.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo sudo supervisorctl update
+echo
+echo "Ouverture de la page http://localhost:8001 dans votre navigateur "
+echo " utilisateur: odr  mot de passe: odr"
+echo " ctrl+c pour quitter"
+echo " pensez a ajouer cette page a vos favoris"
+sensible-browser http://localhost:8001
+echo 
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo

@@ -273,6 +273,12 @@ fi
 
 
 echo -e "$GREEN Done installing all tools $NORMAL"
+echo
+echo
+echo -e "$RED run .Config.sh now for configuring Supervisor $NORMAL"
+echo
+echo
+echo
 echo -e "All the tools have been dowloaded to the /home/$USER/dab/ folder,"
 echo -e "compiled and installed to /usr/local"
 echo
