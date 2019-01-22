@@ -18,20 +18,20 @@ ensemble {
 
 services {
     srv_radio1 {
-        label "My MP3"
-        id 0xF0A1
+        label "FG."
+        id 0xF22C
     }
     srv_radio2 {
         label "F I P"
-        id 0xF0A2
+        id 0xF204
     }
     srv_radio3 {
         label "RTL2"
-        id 0xF0A3
+        id 0xF215
     }
     srv_radio4 {
-        label "RIRE &"
-        id 0xF0A4
+        label "VIRAGE"
+        id 0xF9FA
     }
 }
 
@@ -76,8 +76,8 @@ subchannels {
 
 components {
     comp_radio1 {
-        label "My lovely MP3"
-        shortlabel "My MP3"
+        label "FG."
+        shortlabel "FG."
         service srv_radio1
         subchannel sub_radio1
         figtype 0x2
@@ -97,8 +97,8 @@ components {
         figtype 0x2
     }
         comp_radio4 {
-        label "RIRE & CHANSONS"
-        shortlabel "RIRE &"
+        label "VIRAGE RADIO"
+        shortlabel "VIRAGE"
         service srv_radio4
         subchannel sub_radio4
         figtype 0x2
