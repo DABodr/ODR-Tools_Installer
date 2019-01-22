@@ -35,6 +35,7 @@ echo
 
 echo " Copie des fichiers de configuration"
 sudo cp -R config /home/$USER/dab/
+sudo sudo chmod -R 777  /home/$USER/dab/config
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
