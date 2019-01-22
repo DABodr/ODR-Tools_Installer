@@ -33,8 +33,12 @@ Now you can go at this adress: http://localhost:8001 and see all services runnin
 
 Congratulations everythings is ready :) 
 
-Now you can listen your own DAB+ multiplex with DABlin at this command ( .sh script also available here https://github.com/DABodr/scriptsh.git with name "zmq_loc_to_dablin.sh" ):
+Now you can listen your own DAB+ multiplex with DABlin:
 
-/home/$USER/dab/mmbtools-aux/zmqtest/zmq-sub/zmq-sub localhost 18081 | /home/$USER/dab/dablin/build/src/dablin_gtk
+ - Go to "config" folder cd /home/$USER/dab/config 
+ - chmod +x ./listen_my_mux.sh
+ - ./listen_my_mux.sh
+ - Enjoy!
+
 
 
