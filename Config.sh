@@ -55,6 +55,9 @@ echo -e "[$GREEN OK $NORMAL]"
 
 echo "Creation des liens symboliques"
 sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
+sudo ln /home/$user/dab/config/*.conf /etc/supervisor/conf.d/
+sudo supervisorctl reread 
+sudo sudo supervisorctl update
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo

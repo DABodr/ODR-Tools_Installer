@@ -35,36 +35,35 @@ fi
 
 if [ $(lsb_release -d | grep -c jessie) -eq 1 ]; then
 	DISTRO="jessie"
+echo -e "deb-src http://ftp.debian.org/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "jessie"]]; then
-	sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-	sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" >> /home/$USER/sources.list
-	sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-	sudo mv /home/$USER/sources.list /etc/apt/sources.list
+	echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ jessie main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 	LIST_APT="ok"
 fi
 
 
 if [ $(lsb_release -d | grep -c stretch) -eq 1 ]; then
-DISTRO="stretch"
+	DISTRO="stretch"
+echo -e  "deb-src http://ftp.debian.org/debian/ stretch main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "stretch"]]; then
-		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-		sudo mv /home/$USER/sources.list /etc/apt/sources.list
-		LIST_APT="ok"
+		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
 
 fi
 
 if [ $(lsb_release -d | grep -c buster) -eq 1 ] ; then
-DISTRO="buster"
+	DISTRO="buster"
+echo -e  "deb-src http://ftp.debian.org/debian/ buster main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
+
+
 fi
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [$DISTRO == "buster"]]; then
-		sudo echo "deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi" >> /home/$USER/sources.list
-		sudo echo "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" >> /home/$USER/sources.list
-		sudo mv /etc/apt/sources.list /etc/apt/sources.list-old
-		sudo mv /home/$USER/sources.list /etc/apt/sources.list
+		echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
 		LIST_APT="ok"
 fi
 
@@ -140,7 +139,8 @@ libmagickwand-dev \
 libvlc-dev vlc-data \
 libfaad2 libfaad-dev \
 python-mako python-requests \
-supervisor
+supervisor \
+mplayer2
 
 
 
@@ -153,8 +153,6 @@ elif [ "$DISTRO" == "buster" ] ; then
 sudo apt-get -y install vlc-plugins-base
 
 fi
-
-
 
 if [ "$DISTRO" == "jessie" ] ; then
 
@@ -191,7 +189,7 @@ if [ ! -d "/home/$USER/dab/mmbtools-aux" ];then
 echo -e "$GREEN Fetching mmbtools-aux $NORMAL"
 git clone https://github.com/mpbraendli/mmbtools-aux.git
 pushd mmbtools-aux
-cd /zmqtest/zmq-sub/zmq-sub
+cd zmqtest/zmq-sub/
 make
 popd
 fi
@@ -272,9 +270,7 @@ make
 sudo make install
 popd
 fi
-if [ "LIST_APT" == "ok" ];then
-sudo mv /etc/apt/sources.list-old /etc/apt/sources.list
-fi
+
 
 echo -e "$GREEN Done installing all tools $NORMAL"
 echo -e "All the tools have been dowloaded to the /home/$USER/dab/ folder,"
