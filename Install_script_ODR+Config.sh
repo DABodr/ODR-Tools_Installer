@@ -4,6 +4,7 @@ RED="\e[91m"
 GREEN="\e[92m"
 NORMAL="\e[0m"
 COIN="\e[35m"
+BLEU="\033[XXm
 
 Dossier=$(pwd)
 DISTRO="unknown"
@@ -321,14 +322,21 @@ echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
 
+echo "Redemarrage de Supervisor"
+sudo /etc/init.d/supervisor start
+echo
+echo -e "[$GREEN OK $NORMAL]"
+echo
 echo "Modification de la variable USER des fichiers de configuration"
+echo
 for file in /home/$USER/dab/config/supervisor/*.conf
 do
   echo "Traitement de $file ..."
+  echo
   sudo sed -i -e "s/azerty/$USER/g" "$file"
 done 
 echo -e "[$GREEN OK $NORMAL]"
-
+echo
 echo "Creation des liens symboliques"
 if [ -f /etc/supervisor/conf.d/mux.conf ]
 then
@@ -336,26 +344,19 @@ sudo rm /etc/supervisor/conf.d/enc-*.conf
 sudo rm /etc/supervisor/conf.d/mux.conf
 fi
 sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
-echo
-echo "Redemarrage de Supervisor"
-sudo /etc/init.d/supervisor start
-echo
-echo -e "[$GREEN OK $NORMAL]"
-echo
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
-echo "Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
-echo -e "Utilisateur: $GREEN odr $NORMAL mot de passe: $GREEN odr $NORMAL" 
+echo -e "\e[43m \e[91m Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
+echo -e "Utilisateur: odr mot de passe: odr $NORMAL" 
 echo 
 echo " ctrl+c pour quitter"
-echo
 echo -e "$COIN Pensez a ajouter cette page a vos favoris ! $NORMAL"
 sleep 10
 sensible-browser http://localhost:8001 &
 echo 
 echo
-echo -e "[$GREEN OK $NORMAL]"
+echo -e "$NORMAL"
 echo
 fi
 
