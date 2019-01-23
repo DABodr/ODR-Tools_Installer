@@ -356,7 +356,7 @@ echo -e " Utilisateur: $RED odr $ccl mot de passe: $RED odr $ccl"
 echo 
 echo " ctrl+c pour quitter"
 echo
-echo -e "Pensez a ajouter cette page a vos favoris !"
+echo -e "$GREEN Pensez a ajouter cette page a vos favoris !"
 sleep 10
 sensible-browser http://localhost:8001 &
 echo 
