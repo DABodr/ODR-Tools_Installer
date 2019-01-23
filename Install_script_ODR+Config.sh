@@ -4,8 +4,8 @@ RED="\e[91m"
 GREEN="\e[92m"
 NORMAL="\e[0m"
 COIN="\e[35m"
-BLEU="\033[XXm"
-
+BLEU="\e[104m"
+ccl="\e[1;24;43m"
 Dossier=$(pwd)
 DISTRO="unknown"
 
@@ -347,11 +347,14 @@ sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
-echo -e "\e[43m \e[91m Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
-echo -e "Utilisateur: odr mot de passe: odr $NORMAL" 
+echo -e "$GREEN Configuration effectuée avec succès ! $NORMAL"
+echo
+echo -e "$ccl Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
+echo
+echo -e " Utilisateur: odr mot de passe: odr " 
 echo 
 echo " ctrl+c pour quitter"
-echo -e "$COIN Pensez a ajouter cette page a vos favoris ! $NORMAL"
+echo -e "Pensez a ajouter cette page a vos favoris !"
 sleep 10
 sensible-browser http://localhost:8001 &
 echo 
