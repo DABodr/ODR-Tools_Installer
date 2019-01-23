@@ -350,7 +350,7 @@ echo
 echo -e "$GREEN Configuration effectuée avec succès ! $NORMAL"
 echo
 echo -e "$ccl Ouverture de la page dans votre navigateur dans 10 Secondes"
-echo -e "( http://localhost:8001 )
+echo -e "( http://localhost:8001 )"
 echo
 echo -e " Utilisateur: $RED odr $ccl mot de passe: $RED odr $ccl" 
 echo 
