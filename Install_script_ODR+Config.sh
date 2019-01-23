@@ -4,7 +4,7 @@ RED="\e[91m"
 GREEN="\e[92m"
 NORMAL="\e[0m"
 COIN="\e[35m"
-BLEU="\033[XXm
+BLEU="\033[XXm"
 
 Dossier=$(pwd)
 DISTRO="unknown"
