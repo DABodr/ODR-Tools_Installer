@@ -355,9 +355,9 @@ sudo supervisorctl reread
 sudo supervisorctl update
 echo
 echo "Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
-echo -e " utilisateur: $GREENodr$NORMAL  mot de passe: $GREENodr$NORMAL" 
+echo -e "Utilisateur: $GREEN odr $NORMAL mot de passe: $GREEN odr $NORMAL" 
 echo " ctrl+c pour quitter"
-echo " Pensez a ajouter cette page a vos favoris !"
+echo -e "$COIN Pensez a ajouter cette page a vos favoris ! $NORMAL"
 sleep 10
 sensible-browser http://localhost:8001 &
 echo 
