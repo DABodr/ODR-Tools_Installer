@@ -55,6 +55,10 @@ done
 echo -e "[$GREEN OK $NORMAL]"
 
 echo "Creation des liens symboliques"
+if [ -f /etc/supervisor/conf.d/mux.conf]; then
+sudo rm /etc/supervisor/conf.d/enc-*.conf
+sudo rm /etc/supervisor/conf.d/mux.conf
+fi
 sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo supervisorctl update
@@ -63,7 +67,7 @@ echo "Ouverture de la page http://localhost:8001 dans votre navigateur "
 echo " utilisateur: odr  mot de passe: odr"
 echo " ctrl+c pour quitter"
 echo " pensez a ajouer cette page a vos favoris"
-sensible-browser http://localhost:8001
+sensible-browser http://localhost:8001 &
 echo 
 echo
 echo -e "[$GREEN OK $NORMAL]"
