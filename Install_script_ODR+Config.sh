@@ -321,12 +321,6 @@ echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
 
-echo "Redemarrage de Supervisor"
-sudo /etc/init.d/supervisor start
-echo
-echo -e "[$GREEN OK $NORMAL]"
-echo
-
 echo "Modification de la variable USER des fichiers de configuration"
 for file in /home/$USER/dab/config/supervisor/*.conf
 do
@@ -342,6 +336,12 @@ sudo rm /etc/supervisor/conf.d/enc-*.conf
 sudo rm /etc/supervisor/conf.d/mux.conf
 fi
 sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
+echo
+echo "Redemarrage de Supervisor"
+sudo /etc/init.d/supervisor start
+echo
+echo -e "[$GREEN OK $NORMAL]"
+echo
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
@@ -349,6 +349,7 @@ echo "Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 S
 echo -e "Utilisateur: $GREEN odr $NORMAL mot de passe: $GREEN odr $NORMAL" 
 echo 
 echo " ctrl+c pour quitter"
+echo
 echo -e "$COIN Pensez a ajouter cette page a vos favoris ! $NORMAL"
 sleep 10
 sensible-browser http://localhost:8001 &
