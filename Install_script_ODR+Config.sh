@@ -5,6 +5,7 @@ GREEN="\e[92m"
 NORMAL="\e[0m"
 COIN="\e[35m"
 
+Dossier=$(pwd)
 DISTRO="unknown"
 
 echo -e $RED 
@@ -316,6 +317,7 @@ then
     echo "or Enter to proceed"
 
     read
+cd $Dossier
 sudo /etc/init.d/supervisor stop
 sudo cp -v supervisord.conf /etc/supervisor/supervisord.conf
 echo -e "[$GREEN OK $NORMAL]"
@@ -352,10 +354,11 @@ sudo ln /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
-echo "Ouverture de la page http://localhost:8001 dans votre navigateur "
-echo " utilisateur: odr  mot de passe: odr"
+echo "Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
+echo -e " utilisateur: $GREENodr$NORMAL  mot de passe: $GREENodr$NORMAL" 
 echo " ctrl+c pour quitter"
-echo " pensez a ajouer cette page a vos favoris"
+echo " Pensez a ajouter cette page a vos favoris !"
+sleep 10
 sensible-browser http://localhost:8001 &
 echo 
 echo
