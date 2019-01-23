@@ -55,7 +55,8 @@ done
 echo -e "[$GREEN OK $NORMAL]"
 
 echo "Creation des liens symboliques"
-if [ -f /etc/supervisor/conf.d/mux.conf]; then
+if [ -f /etc/supervisor/conf.d/mux.conf ]
+then
 sudo rm /etc/supervisor/conf.d/enc-*.conf
 sudo rm /etc/supervisor/conf.d/mux.conf
 fi
