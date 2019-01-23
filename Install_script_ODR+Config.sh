@@ -273,12 +273,9 @@ make
 sudo make install
 popd
 fi
-
-
+clear
+echo
 echo -e "$GREEN Done installing all tools $NORMAL"
-echo
-echo
-echo -e "$RED Run .Config.sh now for configuring Supervisor $NORMAL"
 echo
 echo
 echo -e "$GREEN All the tools have been dowloaded to the /home/$USER/dab/ folder,"
@@ -304,19 +301,13 @@ echo -e "This example should give you the idea. For the options"
 echo -e "for compiling the other tools, please see in the ODRinstaller.sh"
 echo -e "script what options are used. Please also read the README"
 echo -e "and INSTALL files in the repositories. $NORMAL"
-echo
+echo -e $RED
 read -r -p "Voulez Vous lancer le Script de Configuration ? [Y/n]" response
 response=${response,,} # tolower
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
    set -e
-
-echo "Modification des fichiers de configuration Supervisor"
-if [ "$?" == "0" ]
-then
-    echo "Press Ctrl-C to abort Supervisor Configuration"
-    echo "or Enter to proceed"
-
-    read
+echo -e $NORMAL
+echo 
 cd $Dossier
 sudo /etc/init.d/supervisor stop
 sudo cp -v supervisord.conf /etc/supervisor/supervisord.conf
@@ -356,6 +347,7 @@ sudo supervisorctl update
 echo
 echo "Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
 echo -e "Utilisateur: $GREEN odr $NORMAL mot de passe: $GREEN odr $NORMAL" 
+echo 
 echo " ctrl+c pour quitter"
 echo -e "$COIN Pensez a ajouter cette page a vos favoris ! $NORMAL"
 sleep 10
@@ -364,7 +356,5 @@ echo
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
-fi 
 fi
-echo
 
