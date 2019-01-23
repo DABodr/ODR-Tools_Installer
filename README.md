@@ -1,5 +1,5 @@
 # ODR DAB installer
-Auto-install script of ODR tools for RaspberryPi ARM and on Jessie & Stretch distribution.
+Auto-install script of ODR tools for RaspberryPi ARM with Buster,Jessie & Stretch distribution and Debian systems.
 
 - Latest version of Raspbian stretch is available here: https://downloads.raspberrypi.org/raspbian_full_latest
 - Latest version on Debian stretch is avaible here: https://www.debian.org/releases/stretch/debian-installer/
