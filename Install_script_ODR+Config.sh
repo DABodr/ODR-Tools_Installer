@@ -349,11 +349,13 @@ sudo supervisorctl update
 echo
 echo -e "$GREEN Configuration effectuée avec succès ! $NORMAL"
 echo
-echo -e "$ccl Ouverture de la page http://localhost:8001 dans votre navigateur dans 10 Secondes"
+echo -e "$ccl Ouverture de la page dans votre navigateur dans 10 Secondes"
+echo -e "( http://localhost:8001 )
 echo
-echo -e " Utilisateur: odr mot de passe: odr " 
+echo -e " Utilisateur: $RED odr $ccl mot de passe: $RED odr $ccl" 
 echo 
 echo " ctrl+c pour quitter"
+echo
 echo -e "Pensez a ajouter cette page a vos favoris !"
 sleep 10
 sensible-browser http://localhost:8001 &
