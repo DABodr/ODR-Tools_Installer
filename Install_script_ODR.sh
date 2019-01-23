@@ -21,7 +21,7 @@ echo "  *   Supervisor (automatisation of all tools) "
 
 #
 # and all required dependencies for a
-# Raspbian stable system.
+# Debian and Raspbian stable system.
 #
 # Requires: sudo"
 echo -e $NORMAL
@@ -142,8 +142,8 @@ libmagickwand-dev \
 libvlc-dev vlc-data \
 libfaad2 libfaad-dev \
 python-mako python-requests \
-supervisor \
-mplayer2
+supervisor mplayer2 \
+alsa-base pulseaudio
 
 
 
@@ -278,11 +278,10 @@ fi
 echo -e "$GREEN Done installing all tools $NORMAL"
 echo
 echo
-echo -e "$RED run .Config.sh now for configuring Supervisor $NORMAL"
+echo -e "$RED Run .Config.sh now for configuring Supervisor $NORMAL"
 echo
 echo
-echo
-echo -e "All the tools have been dowloaded to the /home/$USER/dab/ folder,"
+echo -e "$GREEN All the tools have been dowloaded to the /home/$USER/dab/ folder,"
 echo -e "compiled and installed to /usr/local"
 echo
 echo -e "The stable versions have been compiled, i.e. the latest"
@@ -302,6 +301,9 @@ echo -e " make"
 echo -e " sudo make install"
 echo
 echo -e "This example should give you the idea. For the options"
-echo -e "for compiling the other tools, please see in the debian.sh"
+echo -e "for compiling the other tools, please see in the ODRinstaller.sh"
 echo -e "script what options are used. Please also read the README"
-echo -e "and INSTALL files in the repositories."
+echo -e "and INSTALL files in the repositories. $NORMAL"
+echo
+echo
+
