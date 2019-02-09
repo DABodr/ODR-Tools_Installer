@@ -303,7 +303,7 @@ echo -e "for compiling the other tools, please see in the ODRinstaller.sh"
 echo -e "script what options are used. Please also read the README"
 echo -e "and INSTALL files in the repositories. $NORMAL"
 echo -e $RED
-read -r -p "Do you want run configuration script? [Y/n]" response
+read -r -p "Do you want to start configuration script? [Y/n]" response
 response=${response,,} # tolower
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
    set -e
