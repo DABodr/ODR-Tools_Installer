@@ -303,7 +303,7 @@ echo -e "for compiling the other tools, please see in the ODRinstaller.sh"
 echo -e "script what options are used. Please also read the README"
 echo -e "and INSTALL files in the repositories. $NORMAL"
 echo -e $RED
-read -r -p "Voulez Vous lancer le Script de Configuration ? [Y/n]" response
+read -r -p "Do you want run configuration script? [Y/n]" response
 response=${response,,} # tolower
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
    set -e
@@ -315,29 +315,29 @@ sudo cp -v supervisord.conf /etc/supervisor/supervisord.conf
 echo -e "[$GREEN OK $NORMAL]"
 echo
 
-echo " Copie des fichiers de configuration"
+echo " Copy configuration files"
 sudo cp -R config /home/$USER/dab/
 sudo sudo chmod -R 777  /home/$USER/dab/config
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
 
-echo "Redemarrage de Supervisor"
+echo "Supervisor is restarting..."
 sudo /etc/init.d/supervisor start
 echo
 echo -e "[$GREEN OK $NORMAL]"
 echo
-echo "Modification de la variable USER des fichiers de configuration"
+echo "Modification of the USER variable of the configuration files"
 echo
 for file in /home/$USER/dab/config/supervisor/*.conf
 do
-  echo "Traitement de $file ..."
+  echo "Treatment of $file ..."
   echo
   sudo sed -i -e "s/azerty/$USER/g" "$file"
 done 
 echo -e "[$GREEN OK $NORMAL]"
 echo
-echo "Creation des liens symboliques"
+echo "Symbolic links creation"
 if [ -f /etc/supervisor/conf.d/mux.conf ]
 then
 sudo rm /etc/supervisor/conf.d/enc-*.conf
@@ -347,16 +347,16 @@ sudo ln -s /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
-echo -e "$GREEN Configuration effectuée avec succès ! $NORMAL"
+echo -e "$GREEN Successful configuration ! $NORMAL"
 echo
-echo -e "$ccl Ouverture de la page dans votre navigateur dans 10 Secondes"
+echo -e "$ccl Opening your internet browser in 10 seconds"
 echo -e "( http://localhost:8001 )"
 echo
-echo -e " Utilisateur: $RED odr $ccl mot de passe: $RED odr $ccl" 
+echo -e " User: $RED odr $ccl pass: $RED odr $ccl" 
 echo 
-echo " ctrl+c pour quitter"
+echo " ctrl+c to exit"
 echo
-echo -e "$GREEN Pensez a ajouter cette page a vos favoris !"
+echo -e "$GREEN Remember to add this page to your favorites !"
 sleep 10
 sensible-browser http://localhost:8001 &
 echo 
