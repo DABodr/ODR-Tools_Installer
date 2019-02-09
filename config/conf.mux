@@ -20,18 +20,26 @@ services {
     srv_radio1 {
         label "FG."
         id 0xF22C
+        pty 10
+        language 0x0F
     }
     srv_radio2 {
         label "F I P"
         id 0xF204
+        pty 12
+        language 0x0F           
     }
     srv_radio3 {
         label "RTL2"
         id 0xF215
+        pty 10
+        language 0x0F
     }
     srv_radio4 {
         label "VIRAGE"
         id 0xF9FA
+        pty 11
+        language 0x0F
     }
 }
 
