@@ -21,7 +21,7 @@ It will make a "dab" directory in /home/$USER/ , install all dependency for odr-
    *   Supervisor (automatisation of all tools)
 
 A preconfigured directory with 4 services ,named "config", is also cloned in /home/$USER/dab/ .
-You can edit this one and add services.
+You can edit this one and add services. ( need sudo supervisorctl reread and sudo supervisorctl update after modification )
 
 At the end of the script you can select if you want configure Supervisor server and symlink (y/n)
 It will configure Supervisor server on port 8001 and add "config" directory files inside.
