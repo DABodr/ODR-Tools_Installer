@@ -36,9 +36,9 @@ services {
         language 0x0F
     }
     srv_radio4 {
-        label "VIRAGE"
-        id 0xF9FA
-        pty 11
+        label "FREQ3"
+        id 0xFDB1
+        pty 10
         language 0x0F
     }
 }
@@ -105,8 +105,8 @@ components {
         figtype 0x2
     }
         comp_radio4 {
-        label "VIRAGE RADIO"
-        shortlabel "VIRAGE"
+        label "FREQUENCE 3"
+        shortlabel "FREQ 3"
         service srv_radio4
         subchannel sub_radio4
         figtype 0x2
