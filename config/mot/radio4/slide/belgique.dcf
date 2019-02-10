@@ -1,0 +1,12 @@
+GBL~ZMQ~7C~20~NAM-LUX~NAM-LUX~4fff~E1~224.1.2.2~13000~1234~0~2~127.0.0.1~20~0.0.0.0~*~18081
+PGM~ http://dhradio.ice.infomaniak.ch/dhradio-192.mp3 ~ http://dhradio.ice.infomaniak.ch/dhradio-192.mp3 ~DH Radio~DH Radio~23 Leisure~96~48~6482~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~stream~~0F~0~72~16777215~0~~15~1~1~1
+PGM~https://radios.rtbf.be/musiq3-128.mp3 ~https://radios.rtbf.be/musiq3-128.mp3 ~Musiq3~Musiq3~14 Serious Classical~96~48~6353~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~MUSIQ3~0F~0~72~16777215~13973063~~15~1~1~1
+PGM~https://radios.rtbf.be/pure-128.mp3 ~https://radios.rtbf.be/pure-128.mp3 ~Pure~Pure~10 Pop Music~96~48~6355~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~PURE~0F~0~72~3980160~16711680~~15~1~1~1
+PGM~http://live.funradio.be/funradiobe-high.mp3~http://live.funradio.be/funradiobe-high.mp3~FunRadio~Fun Radio~10 Pop Music~96~48~6217~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~LE SON DANCEFLOOR~0F~0~72~16777215~16008609~~15~1~1~1
+PGM~http://mustfm.ice.infomaniak.ch/mustfm-192.mp3~http://mustfm.ice.infomaniak.ch/mustfm-192.mp3~Must FM~Must FM~23 Leisure~96~48~6300~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~stream~~0F~0~72~340069~15138625~~15~1~1~1
+PGM~https://radios.rtbf.be/classic21-128.mp3 ~https://radios.rtbf.be/classic21-128.mp3 ~Class 21~Classic 21~11 Rock Music~96~48~6354~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~stream~~0F~0~72~16777215~10296449~~15~1~1~1
+PGM~https://streamingp.shoutcast.com/NRJPremium64~https://streamingp.shoutcast.com/NRJPremium64~NRJ~NRJ Belgique~10 Pop Music~96~48~6381~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~NRJ BELGIQUE~0F~0~72~16776955~8454163~~15~1~1~1
+PGM~ http://nostalgiepremium.ice.infomaniak.ch/nostalgiepremium-128.mp3~ http://nostalgiepremium.ice.infomaniak.ch/nostalgiepremium-128.mp3~Nostalgi~Nostalgie~27 Oldies~96~48~6380~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~stream~~0F~0~72~2432801~14600555~~15~1~1~1
+PGM~http://audiostream.rtl.be/contactfr192 ~ http://audiostream.rtl.be/contactfr192 ~Contact~Radio Contact~10 Pop Music~96~48~6315~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~RADIO CONTACT FEEL GOOD~0F~0~72~16777215~28342~~15~1~1~1
+PGM~~~Test Son~Test Son Local~10 Pop Music~96~48~F123~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~CARTE SON INTERNE PC~0F~0~72~16777215~0~~15~1~1~1
+PGM~http://audiostream.rtl.be:80/mint~http://audiostream.rtl.be:80/mint~MINT~MINT~10 Pop Music~96~48~6589~3 C/N Fx 5.7 / Mb 11.8 dB~40~20~2~~MINT La radio pop rock~0F~0~72~6400816~16777215~~15~1~1~1
