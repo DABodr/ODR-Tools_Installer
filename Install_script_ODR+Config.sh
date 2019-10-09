@@ -344,7 +344,7 @@ then
 sudo rm /etc/supervisor/conf.d/enc-*.conf
 sudo rm /etc/supervisor/conf.d/mux.conf
 fi
-sudo ln -s /home/$USER/dab/config/supervisor/*.conf /etc/supervisor/conf.d/
+sudo ln -s /home/$USER/dab/config/supervisor/ /etc/supervisor/conf.d/
 sudo supervisorctl reread 
 sudo supervisorctl update
 echo
