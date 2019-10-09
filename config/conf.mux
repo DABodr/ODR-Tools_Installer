@@ -18,8 +18,8 @@ ensemble {
 
 services {
     srv_radio1 {
-        label "FG."
-        id 0xF22C
+        label "MAXXIMA"
+        id 0x4DB0
         pty 10
         language 0x0F
     }
@@ -84,8 +84,8 @@ subchannels {
 
 components {
     comp_radio1 {
-        label "FG."
-        shortlabel "FG."
+        label "MAXXIMA"
+        shortlabel "MAXXIMA"
         service srv_radio1
         subchannel sub_radio1
         figtype 0x2
