@@ -6,7 +6,7 @@ Auto-install script of ODR tools for RaspberryPi ARM with Buster, Jessie & Stret
 
   * Install:
 
-- sudo adduser <username> sudo 
+- sudo adduser (username) sudo 
 - git clone https://github.com/DABodr/ODRinstaller.git
 - cd ODRinstaller
 - chmod +x ./Install_script_ODR+Config.sh
