@@ -18,8 +18,10 @@ echo "  *   ODR-AudioEnc "
 echo "  *   ODR-PadEnc "
 echo "  *   DABlin "
 echo "  *   Auxiliary scripts "
-echo "  *   The FDK-AAC library with DAB+ patch "
+echo "  *   The FDK-AACv2 library with DAB+ patch "
 echo "  *   Supervisor (automatisation of all tools) "
+echo
+echo "  *   Preconfigured multiplex with DLS and SLS (Slideshows)
 
 #
 # and all required dependencies for a
