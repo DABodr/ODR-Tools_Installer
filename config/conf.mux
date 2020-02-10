@@ -10,8 +10,8 @@ remotecontrol {
 ensemble {
     id 0xF408
     ecc 0xE1
-    label "RSAP DAB+"
-    shortlabel "RSAP"
+    label "ODR ON AIR"
+    shortlabel "ODR"
     international-table 1
     local-time-offset auto
 }
