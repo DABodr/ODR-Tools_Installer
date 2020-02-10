@@ -49,7 +49,7 @@ subchannels {
         inputfile "tcp://*:9001"
         zmq-buffer 96
         zmq-prebuffering 48
-        bitrate 128
+        bitrate 88
         id 1
         protection 3
     }
@@ -58,7 +58,7 @@ subchannels {
         inputfile "tcp://*:9002"
         zmq-buffer 96
         zmq-prebuffering 48
-        bitrate 128
+        bitrate 88
         id 2
         protection 3
     }
@@ -67,7 +67,7 @@ subchannels {
         inputfile "tcp://*:9003"
         zmq-buffer 96
         zmq-prebuffering 48
-        bitrate 128
+        bitrate 88
         id 3
         protection 3
     }
@@ -76,7 +76,7 @@ subchannels {
         inputfile "tcp://*:9004"
         zmq-buffer 96
         zmq-prebuffering 48
-        bitrate 128
+        bitrate 88
         id 4
         protection 3
     }    
