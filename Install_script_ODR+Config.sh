@@ -259,6 +259,7 @@ if [ ! -d "/home/$USER/dab/ODR-AudioEnc" ];then
 echo -e "$GREEN Compiling ODR-AudioEnc $NORMAL"
 git clone https://github.com/Opendigitalradio/ODR-AudioEnc.git
 pushd ODR-AudioEnc
+git checkout next
 ./bootstrap
 ./configure --enable-alsa --enable-jack --enable-vlc --disable-uhd
 make
