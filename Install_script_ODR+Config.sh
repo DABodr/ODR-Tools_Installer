@@ -146,7 +146,7 @@ libmagickwand-dev \
 libvlc-dev vlc-data \
 libfaad2 libfaad-dev \
 python-mako python-requests \
-supervisor mplayer2 \
+supervisor mplayer \
 pulseaudio
 
 
