@@ -38,5 +38,7 @@ Now you can listen your own DAB+ multiplex with DABlin:
  - ./listen_my_mux.sh
  - Enjoy!
 
+If you use console mode, edit "listen_my_mux.sh" and modify "dablin_gtk" command by "dablin -s 0xf215" (SID of the station)  
 
-
+Example: /home/$USER/dab/mmbtools-aux/zmqtest/zmq-sub/zmq-sub localhost 18081 | /home/$USER/dab/dablin/build/src/dablin -s 0xf215
+(0xf215 for listen RTL2, 0xf750 RVM, 0x4d0 MAXXIMA, 0x204 FIP)
