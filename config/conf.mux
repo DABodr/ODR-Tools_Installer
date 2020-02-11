@@ -10,7 +10,7 @@ remotecontrol {
 ensemble {
     id 0xF408
     ecc 0xE1
-    label "ODR ON AIR"
+    label "OpenDigitalRadio"
     shortlabel "ODR"
     international-table 1
     local-time-offset auto
