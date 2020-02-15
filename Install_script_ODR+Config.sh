@@ -243,9 +243,8 @@ fi
 
 if [ ! -d "/home/$USER/dab/fdk-aac" ];then
 echo -e "$GREEN Compiling fdk-aac library $NORMAL"
-git clone https://github.com/Opendigitalradio/fdk-aac.git
+git clone https://github.com/Opendigitalradio/fdk-aac.git -b dabplus2
 pushd fdk-aac
-git checkout dabplus2
 ./bootstrap
 ./configure
 make
