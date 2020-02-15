@@ -1,8 +1,11 @@
 # ODR tools installer with full DAB+ multiplex auto-configuration
-Auto-install script of ODR tools for RaspberryPi ARM with Buster, Jessie & Stretch distribution and Debian systems.
 
-- Latest version of Raspbian stretch is available here: https://downloads.raspberrypi.org/raspbian_full_latest
-- Latest version on Debian stretch is avaible here: https://www.debian.org/releases/stretch/debian-installer/
+Auto-install script of ODR tools for RaspberryPi ARM with Buster, Jessie & Stretch distribution and Debian systems.
+Auto-configuration with system adaptation of a full DAB+ multiplex
+Don't need transmitter for listen your mux with DABlin, DAB+ decoder software
+
+- More infos on www.opendigitalradio.org for ODR tools development
+- Configuration ready for transmit with an EasyDABv2 : https://tipok.org.ua/node/46
 
   * Install:
 
@@ -18,7 +21,7 @@ It will make a "dab" directory in /home/$USER/ , install all dependency for odr-
    *   ODR-PadEnc ( MOT slideshows and DLS encoder)
    *   DABlin ( DAB/DAB+ player for local and remote multiplex)
    *   Auxiliary scripts
-   *   The FDK-AAC library with DAB+ patch
+   *   The FDK-AAC v2 library with DAB+ patch
    *   Supervisor (automatisation of all tools)
 
 A preconfigured directory with 4 services ,named "config", is also cloned in /home/$USER/dab/ .
