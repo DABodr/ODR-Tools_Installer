@@ -4,7 +4,7 @@
 * Auto-configuration with system adaptation of a full DAB+ multiplex.                   
 * No transmitter needed for listen your mux with DABlin, DAB+ decoder software.
 
- More infos on www.opendigitalradio.org for ODR tools development
+ More infos on www.opendigitalradio.org for ODR tools development.               
  Configuration ready for transmit with an EasyDABv2 : https://tipok.org.ua/node/46
 
   * Install:
