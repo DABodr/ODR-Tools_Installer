@@ -220,7 +220,7 @@ pushd ODR-DabMux
 if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ]; then
 ./configure --enable-input-zeromq --enable-output-zeromq --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
 else
-./configure --enable-input-zeromq --enable-output-zeromq
+./configure --enable-input-zeromq --enable-output-zeromq --with-boost-libdir=/usr/lib/i386-linux-gnu
 fi
 make
 sudo make install
