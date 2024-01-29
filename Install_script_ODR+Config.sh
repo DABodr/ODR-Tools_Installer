@@ -183,7 +183,7 @@ sudo apt-get -y install vlc-plugin-base
 sudo apt-get -y install libzmq3-dev libzmq5
 elif [ "$DISTRO" == "bookworm" ] ; then
 sudo apt-get -y install vlc-plugin-base
-sudo apt-get -y install libzmq3-dev libzmq5fi
+sudo apt-get -y install libzmq3-dev libzmq5
 fi
 
 # stuff to install from source
