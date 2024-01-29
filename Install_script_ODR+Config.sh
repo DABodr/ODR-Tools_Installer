@@ -74,6 +74,29 @@ echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ buster contrib non-fr
 	LIST_APT="ok"
 fi
 
+if [ $(lsb_release -d | grep -c Debian) -eq 1 ] && [ $(lsb_release -sc | grep -c bullseye) -eq 1 ] ; then
+	DISTRO="bullseye"
+echo -e  "deb-src http://ftp.debian.org/debian/ bullseye main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
+fi
+
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [ $(lsb_release -sc | grep -c bullseye) -eq 1 ] ; then
+	DISTRO="bullseye"
+echo -e  "deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
+fi
+
+if [ $(lsb_release -d | grep -c Debian) -eq 1 ] && [ $(lsb_release -sc | grep -c bookworm) -eq 1 ] ; then
+	DISTRO="bookworm"
+echo -e  "deb-src http://ftp.debian.org/debian/ bookworm main contrib non-free" | sudo tee /etc/apt/sources.list.d/odr.list
+        LIST_APT="ok"
+
+fi
+if [ $(lsb_release -d | grep -c Raspbian) -eq 1 ] && [ $(lsb_release -sc | grep -c bookworm) -eq 1 ]; then
+        DISTRO="bookworm"
+echo -e "deb-src http://raspbian.raspberrypi.org/raspbian/ bookworm contrib non-free rpi" | sudo tee /etc/apt/sources.list.d/odr.list
+	LIST_APT="ok"
+fi
 
 echo
 echo -e $COIN " Your version : $DISTRO "
@@ -145,38 +168,23 @@ libcurl4-openssl-dev \
 libmagickwand-dev \
 libvlc-dev vlc-data \
 libfaad2 libfaad-dev \
-python-mako python-requests \
+python3-mako python3-requests \
 supervisor \
-pulseaudio
-
-
-
-if [[ "$DISTRO" == "jessie" || "$DISTRO" == "stretch" ]] ; then
-
-sudo apt-get -y install vlc-nox
-
-elif [ "$DISTRO" == "buster" ] ; then
-
-sudo apt-get -y install vlc-plugin-base
-
-fi
+pulseaudio \ build-dep uhd
 
 if [ "$DISTRO" == "jessie" ] ; then
-
-sudo apt-get -y install libzmq3-dev libzmq3
-
+sudo apt-get -y install libzmq3-dev libzmq3 vlc-nox
 elif [ "$DISTRO" == "stretch" ] ; then
-
-sudo apt-get -y install libzmq3-dev libzmq5
-
+sudo apt-get -y install libzmq3-dev libzmq5 
 elif [ "$DISTRO" == "buster" ] ; then
-
-sudo apt-get -y install libzmq5-dev libzmq5
-
+sudo apt-get -y install libzmq5-dev libzmq5 vlc-plugin-base
+elif [ "$DISTRO" == "bullseye" ] ; then
+sudo apt-get -y install vlc-plugin-base
+sudo apt-get -y install libzmq3-dev libzmq5
+elif [ "$DISTRO" == "bookworm" ] ; then
+sudo apt-get -y install vlc-plugin-base
+sudo apt-get -y install libzmq3-dev libzmq5fi
 fi
-
-# this will install boost, cmake and a lot more
-sudo apt-get -y build-dep uhd
 
 # stuff to install from source
 
@@ -256,12 +264,15 @@ echo -e "$GREEN Updating ld cache $NORMAL"
 # update ld cache
 sudo ldconfig
 
+# For gstreamer option :
+sudo apt-get -y install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
+# Audioenc :
 if [ ! -d "/home/$USER/dab/ODR-AudioEnc" ];then
 echo -e "$GREEN Compiling ODR-AudioEnc $NORMAL"
 git clone https://github.com/Opendigitalradio/ODR-AudioEnc.git
 pushd ODR-AudioEnc
 ./bootstrap
-./configure --enable-alsa --enable-jack --enable-vlc --disable-uhd
+./configure --enable-alsa --enable-jack --enable-vlc --disable-uhd --enable-gst
 make
 sudo make install
 popd
@@ -272,7 +283,7 @@ echo -e "$GREEN Compiling ODR-PadEnc $NORMAL"
 git clone https://github.com/Opendigitalradio/ODR-PadEnc.git
 pushd ODR-PadEnc
 ./bootstrap
-./configure --enable-jack --enable-vlc
+./configure
 make
 sudo make install
 popd
