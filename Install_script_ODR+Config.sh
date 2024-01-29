@@ -170,8 +170,7 @@ libvlc-dev vlc-data \
 libfaad2 libfaad-dev \
 python3-mako python3-requests \
 supervisor \
-pulseaudio \ 
-build-dep uhd
+pulseaudio
 
 if [ "$DISTRO" == "jessie" ] ; then
 sudo apt-get -y install libzmq3-dev libzmq3 vlc-nox
